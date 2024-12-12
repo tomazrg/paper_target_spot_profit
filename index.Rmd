@@ -1,6 +1,6 @@
 ---
 title: "Economic returns on fungicide use across soybean cultivars with varying tolerance to target spot"
-author: Ricardo G. Tomáz | Cláudia V. Godoy | Emerson M. Del Ponte.
+author: Ricardo Tomáz | Cláudia Godoy | Emerson Del Ponte.
 format: 
   html:
     code-fold: false
@@ -60,7 +60,7 @@ ma |>
   "CD 2728 IPRO","DM 75i76 IPRO","M8210 IPRO","TMG 2181 IPRO")) %>% 
   filter(!is.na(sev)) |> 
   ggplot(aes(sev))+
-  geom_histogram(fill = "#D2691E", color = "white")+
+  geom_histogram(fill = "black", color = "white")+
   ggthemes::theme_few()+
   #theme_minimal()+
   #facet_wrap(~year)+
@@ -233,7 +233,7 @@ sum(count_study$n_study)
 sev = ma |> 
   filter(!is.na(sev)) |> 
   ggplot(aes(sev))+
-  geom_histogram(fill = "#D2691E", color = "white")+
+  geom_histogram(fill = "black", color = "white")+
   #D2691E
   ggthemes::theme_few()+
   #theme_minimal()+
@@ -247,7 +247,7 @@ sev = ma |>
 sev_log = ma |> 
   filter(!is.na(sev)) |> 
   ggplot(aes(log10(sev)))+
-  geom_histogram(fill = "#D2691E", color = "white")+
+  geom_histogram(fill = "black", color = "white")+
   #theme_minimal()+
   ggthemes::theme_few()+
   #facet_wrap(~year)+
@@ -259,7 +259,7 @@ sev_log = ma |>
 yld = ma |> 
   filter(!is.na(yld)) |> 
   ggplot(aes(yld))+
-  geom_histogram(fill = "#D2691E", color = "white")+
+  geom_histogram(fill = "black", color = "white")+
   #scale_y_continuous(breaks = c(0, 200, 400, 600,800), limits = c(0, 800))+
   ggthemes::theme_few()+
   #theme_minimal()+
@@ -285,7 +285,7 @@ sev_cultivar = ma |>
   "CD 2728 IPRO","DM 75i76 IPRO","M8210 IPRO","TMG 2181 IPRO","HO MARACAÍ IPRO")) %>% 
   filter(!is.na(sev)) |> 
   ggplot(aes(sev))+
-  geom_histogram(fill = "#D2691E", color = "white", bins = 10)+
+  geom_histogram(fill = "black", color = "white", bins = 10)+
   #theme_minimal()+
   ggthemes::theme_few()+
   #facet_wrap(~year)+
@@ -308,7 +308,7 @@ yld_cultivar = ma |>
   "CD 2728 IPRO","DM 75i76 IPRO","M8210 IPRO","TMG 2181 IPRO","HO MARACAÍ IPRO")) %>% 
   filter(!is.na(yld)) |> 
   ggplot(aes(yld))+
-  geom_histogram(fill = "#D2691E", color = "white", bins = 10)+
+  geom_histogram(fill = "black", color = "white", bins = 10)+
   #scale_y_continuous(breaks = c(0, 200, 400, 600,800), limits = c(0, 800))+
   ggthemes::theme_few()+
   #theme_minimal()+
@@ -333,7 +333,7 @@ sev_ai = ma |>
   filter(ai %in% c("BIX+PROT+TRIFL","AZOX+TEBU+MANC","FLUX+PYRA","_CHECK")) %>% 
   filter(!is.na(sev)) |> 
   ggplot(aes(sev))+
-  geom_histogram(fill = "#D2691E", color = "white", bins = 10)+
+  geom_histogram(fill = "black", color = "white", bins = 10)+
   #theme_minimal()+
   ggthemes::theme_few()+
   #facet_wrap(~year)+
@@ -356,7 +356,7 @@ yld_ai = ma |>
                    "AZOX+TEBU+MANC","FLUX+PYRA","_CHECK")) %>%
   filter(!is.na(yld)) |> 
   ggplot(aes(yld))+
-  geom_histogram(fill = "#D2691E", color = "white", bins = 15)+
+  geom_histogram(fill = "black", color = "white", bins = 15)+
   #scale_y_continuous(breaks = c(0, 200, 400, 600,800), limits = c(0, 800))+
   ggthemes::theme_few()+
   #theme_minimal()+
