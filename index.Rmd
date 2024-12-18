@@ -2081,7 +2081,7 @@ gc()
 
 ```{r,eval = FALSE, echo = TRUE}
 #alpha_res_graphic,alpha_m_sus_graphic,alpha_sus_graphic,
-plot_grid(sn_res_graphic,sn_m_sus_graphic,sn_sus_graphic,b0_res_graphic,b0_m_sus_graphic,b0_sus_graphic,b1_res_graphic,b1_m_sus_graphic,b1_sus_graphic, ncol = 3, labels = c("AUTO"))
+plot_grid(sn_res_graphic,sn_m_sus_graphic,sn_sus_graphic,b0_res_graphic,b0_m_sus_graphic,b0_sus_graphic,b1_res_graphic,b1_m_sus_graphic,b1_sus_graphic, ncol = 3,  labels = c("(a)", "(b)", "(c)", "(d)","(e)","(f)","(g)","(h)","(i)"),label_x = -0.03)
 
 ggsave("fig/simulated_variables.png", dpi = 1000, bg = "white",
        height = 8, width = 12)
@@ -2193,7 +2193,7 @@ gc()
 plot_grid(corr_actual_plot_res,corr_actual_plot_m_sus,corr_actual_plot_sus,corr_sim_plot_res,corr_sim_plot_m_sus,corr_sim_plot_sus,
           real_RYL_res,real_RYL_m_sus,real_RYL_sus,alpha_res_graphic,alpha_m_sus_graphic,alpha_sus_graphic,
           ecdf_damage_res,ecdf_damage_m_sus,ecdf_damage_sus,
-          ncol = 3, labels = c("AUTO"), label_size = 24)
+          ncol = 3, labels = c("(a)", "(b)", "(c)", "(d)","(e)","(f)","(g)","(h)","(i)", "(j)","(k)","(l)","(m)","(n)","(o)"), label_x = -0.03,label_size = 24)
 
 ggsave("fig/RYL.png", dpi = 600, height = 20, width = 18)
 
@@ -2429,7 +2429,11 @@ gc()
 library(patchwork)
 
 combined_plot <- (res_graphic + m_sus_graphic + sus_graphic) + plot_layout(ncol = 3, widths = c(3, 3, 3)) + plot_layout(guides = 'collect')+
-plot_annotation(tag_levels = "A")
+plot_annotation(
+    tag_levels = "a",              # Gera etiquetas automáticas
+    tag_prefix = "(",              # Adiciona parênteses ao início
+    tag_suffix = ")"               # Adiciona parênteses ao final
+  )
 
 combined_plot
 
@@ -2680,7 +2684,7 @@ overall_cultivar <- overall_cultivar %>%
   facet_grid(class~class2)+
   #facet_wrap(~class+class2)+
   labs(x = "Fungicide efficacy (%)",
-       y = "Yield gain (kg/ha)",
+       y = "Yield difference (kg/ha)",
        color = "Tolerance level", 
        linetype = "", fill = "")+
   theme(text = element_text(face = "bold", size = 14),
@@ -3242,8 +3246,8 @@ regression_graphic_res = res |>
   geom_abline(data = r_regression,aes(intercept = `97.5 %`[1],slope = `97.5 %`[2]) ,
               size = .51, linetype = 2)+
   geom_abline(data = r_regression, aes(intercept = `2.5 %`[1],slope = `2.5 %`[2]), size = .51, linetype = 2)+
-  annotate(geom="text", x=55, y=6000, label="DC = 0.2",
-              color="black", size = 4)+
+  #annotate(geom="text", x=55, y=6000, label="DC = 0.2",
+   #           color="black", size = 4)+
     ggthemes::theme_few()+
   theme(text = element_text(size = 12, face = "bold"),
         axis.title = element_text(size = 14, face = "bold"),
@@ -3395,8 +3399,8 @@ regression_graphic_m_sus = m_sus |>
   geom_abline(data = ms_regression,aes(intercept = `97.5 %`[1],slope = `97.5 %`[2]) ,
               size = .51, linetype = 2)+
   geom_abline(data = ms_regression, aes(intercept = `2.5 %`[1],slope = `2.5 %`[2]), size = .51, linetype = 2)+
-  annotate(geom="text", x=55, y=6000, label="DC = 0.6",
-              color="black", size = 4)+
+  #annotate(geom="text", x=55, y=6000, label="DC = 0.6",
+   #           color="black", size = 4)+
     ggthemes::theme_few()+
   theme(text = element_text(size = 12, face = "bold"),
         axis.title = element_text(size = 14, face = "bold"),
@@ -3555,8 +3559,8 @@ regression_graphic_sus = susceptible |>
   geom_abline(data = s_regression,aes(intercept = `97.5 %`[1],slope = `97.5 %`[2]) ,
               size = .51, linetype = 2)+
   geom_abline(data = s_regression, aes(intercept = `2.5 %`[1],slope = `2.5 %`[2]), size = .51, linetype = 2)+
-  annotate(geom="text", x=55, y=6000, label="DC = 1.0",
-              color="black", size = 4)+
+  #annotate(geom="text", x=55, y=6000, label="DC = 1.0",
+   #           color="black", size = 4)+
     ggthemes::theme_few()+
   theme(text = element_text(size = 12, face = "bold"),
         axis.title = element_text(size = 14, face = "bold"),
@@ -3571,7 +3575,7 @@ regression_graphic_sus
 ```{r}
 
 plot_grid(p2,regression_graphic_res,regression_graphic_m_sus,
-          regression_graphic_sus,ncol = 2, labels = c("AUTO"))
+          regression_graphic_sus,ncol = 2,  labels = c("(a)", "(b)", "(c)", "(d)"))
 
 ggsave("fig/regression_cultivars.png", bg = "white",
        dpi = 1000, height = 8, width = 8)
@@ -3949,7 +3953,7 @@ EDT_hist
 plot_grid(EDT_heat, EDT_hist, nrow = 2, 
                            align = 'hv', 
                            axis = 'tblr', 
-                           rel_widths = c(1, 1), labels = c("AUTO"))
+                           rel_widths = c(1, 1), labels = c("(a)", "(b)"))
 
 ggsave("fig/EDT_cultivar_histo.png", bg = "white",
        dpi = 600,height =10, width = 14)
