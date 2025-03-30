@@ -155,11 +155,8 @@ p2 = p + theme_few() +
   scale_color_manual(values = c('#9ccb86','#cf597e','steelblue'))+
   scale_fill_manual(values = c('#9ccb86','#cf597e','steelblue'))+
   theme(
-    text = element_text(size = 14, face = "bold"),  
-    axis.title = element_text(size = 14),  
-    axis.text = element_text(size = 14), 
-    legend.title = element_text(size = 14),  
-    legend.text = element_text(size = 14)) + 
+    axis.title = element_text(size = 14, face = "bold"),  
+    axis.text = element_text(size = 12)) + 
   labs(
     title = "",  
     x = "PC1",  
@@ -1884,11 +1881,12 @@ sn_res_graphic = big_one_df %>%
   filter(C >= 60) %>%
   ggplot(aes(sn_res))+
   geom_histogram(color = "white", fill = "steelblue", bins = 10, alpha= .5)+
-  theme(text = element_text(face = "bold", size = 14),
-        axis.title = element_text(face = "bold",size = 16))+
+  ggthemes::theme_few()+
+  theme(text = element_text(size = 12),
+        axis.title = element_text(size = 14,face = "bold"))+
   labs(y = "Frequency",
-       x = "Target spot severity (%)")+
-  ggthemes::theme_few()
+       x = "Target spot severity (%)")
+  
 
 gc()
 
@@ -1899,11 +1897,11 @@ sn_m_sus_graphic = big_one_df %>%
   filter(C >= 60) %>%
   ggplot(aes(sn_m_sus))+
   geom_histogram(color = "white", fill = "darkgreen", bins = 10, alpha= .5)+
-  theme(text = element_text(face = "bold", size = 14),
-         axis.title = element_text(size = 16, face = "bold"))+
+ ggthemes::theme_few()+
+  theme(text = element_text(size = 12),
+        axis.title = element_text(size = 14,face = "bold"))+
   labs(y = "",
-       x = "Target spot severity (%)")+
-  ggthemes::theme_few()
+       x = "Target spot severity (%)")
 
 gc()
 
@@ -1914,11 +1912,11 @@ sn_sus_graphic = big_one_df %>%
   filter(C >= 60) %>%
   ggplot(aes(sn_sus))+
   geom_histogram(color = "white", fill = "brown", bins = 10, alpha= .5)+
-  theme(text = element_text(face = "bold", size = 14),
-         axis.title = element_text(size = 16, face = "bold"))+
+   ggthemes::theme_few()+
+  theme(text = element_text(size = 12),
+        axis.title = element_text(size = 14,face = "bold"))+
   labs(y = "",
-       x = "Target spot severity (%)")+
-  ggthemes::theme_few()
+       x = "Target spot severity (%)")
 
 gc()
 
@@ -1934,11 +1932,11 @@ b0_res_graphic = big_one_df %>%
   ggplot(aes(b0_res))+
   geom_histogram(color = "white", fill = "steelblue", bins = 10, alpha= .5)+
    scale_x_continuous(breaks = c(0,1000,2000,3000,4000,5000,6000,7000), limits = c(0, 7000))+
-  theme(text = element_text(face = "bold", size = 14),
-         axis.title = element_text(size = 16, face = "bold"))+
+   ggthemes::theme_few()+
+  theme(text = element_text(size = 12),
+        axis.title = element_text(size = 14,face = "bold"))+
   labs(y = "Frequency",
-       x = "Intercept (kg/ha)")+
-  ggthemes::theme_few()
+       x = "Intercept (kg/ha)")
 
 gc()
 
@@ -1950,11 +1948,11 @@ b0_m_sus_graphic = big_one_df %>%
   ggplot(aes(b0_m_sus))+
   geom_histogram(color = "white", fill = "darkgreen", bins = 10, alpha= .5)+
   scale_x_continuous(breaks = c(0,1000,2000,3000,4000,5000,6000,7000), limits = c(0, 7000))+
-  theme(text = element_text(face = "bold", size = 14),
-         axis.title = element_text(size = 16, face = "bold"))+
+   ggthemes::theme_few()+
+  theme(text = element_text(size = 12),
+        axis.title = element_text(size = 14,face = "bold"))+
   labs(y = "",
-       x = "Intercept (kg/ha)")+
-  ggthemes::theme_few()
+       x = "Intercept (kg/ha)")
 
 gc()
 
@@ -1966,11 +1964,11 @@ b0_sus_graphic = big_one_df %>%
   ggplot(aes(b0_sus))+
   geom_histogram(color = "white", fill = "brown", bins = 10, alpha= .5)+
   scale_x_continuous(breaks = c(0,1000,2000,3000,4000,5000,6000,7000), limits = c(0, 7000))+
-  theme(text = element_text(face = "bold", size = 14),
-         axis.title = element_text(size = 16, face = "bold"))+
+   ggthemes::theme_few()+
+  theme(text = element_text(size = 12),
+        axis.title = element_text(size = 14,face = "bold"))+
   labs(y = "",
-       x = "Intercept (kg/ha)")+
-  ggthemes::theme_few()
+       x = "Intercept (kg/ha)")
 
 gc()
 ```
@@ -1985,11 +1983,11 @@ b1_res_graphic = big_one_df %>%
   ggplot(aes(b1_res))+
   geom_histogram(color = "white", fill = "steelblue", bins = 10, alpha= .5)+
    scale_x_continuous(breaks = c(-100,-90,-80,-70,-60,-50,-40,-30,-20,-10,0), limits = c(-100,0))+
-  theme(text = element_text(face = "bold", size = 14),
-         axis.title = element_text(size = 16, face = "bold"))+
+   ggthemes::theme_few()+
+  theme(text = element_text(size = 12),
+        axis.title = element_text(size = 14,face = "bold"))+
   labs(y = "Frequency",
-       x = "Slope (kg/p.p.)")+
-  ggthemes::theme_few()
+       x = "Slope (kg/p.p.)")
 
 gc()
 
@@ -2001,11 +1999,11 @@ b1_m_sus_graphic = big_one_df %>%
   ggplot(aes(b1_m_sus))+
   geom_histogram(color = "white", fill = "darkgreen", bins = 10, alpha= .5)+
   scale_x_continuous(breaks = c(-100,-90,-80,-70,-60,-50,-40,-30,-20,-10,0), limits = c(-100,0))+
-  theme(text = element_text(face = "bold", size = 14),
-         axis.title = element_text(size = 16, face = "bold"))+
+   ggthemes::theme_few()+
+  theme(text = element_text(size = 12),
+        axis.title = element_text(size = 14,face = "bold"))+
   labs(y = "",
-       x = "Slope (kg/p.p.)")+
-  ggthemes::theme_few()
+       x = "Slope (kg/p.p.)")
 
 gc()
 
@@ -2018,11 +2016,11 @@ b1_sus_graphic = big_one_df %>%
   geom_histogram(color = "white", fill = "brown", bins = 10, alpha= .5)+
   scale_x_continuous(breaks = c(-200,-180,-160,
                 -140,-120, -100,-80,-60,-40,-20,0), limits = c(-200,0))+
-  theme(text = element_text(face = "bold", size = 14),
-         axis.title = element_text(size = 16, face = "bold"))+
+   ggthemes::theme_few()+
+  theme(text = element_text(size = 12),
+        axis.title = element_text(size = 14,face = "bold"))+
   labs(y = "",
-       x = "Slope (kg/p.p.)")+
-  ggthemes::theme_few()
+       x = "Slope (kg/p.p.)")
 
 gc()
 
@@ -2037,11 +2035,11 @@ alpha_res_graphic = big_one_df %>%
   ggplot(aes(alfa_res))+
   geom_histogram(color = "white", fill = "black", bins = 10)+
   scale_x_continuous(breaks = c(-2.0,-1.75,-1.50,-1.25,-1.00,-0.75,-0.50,-0.25,0.0), limits = c(-2.0,0.0))+
-  theme(text = element_text(face = "bold", size = 14),
-         axis.title = element_text(size = 16, face = "bold"))+
+   ggthemes::theme_few()+
+  theme(text = element_text(size = 12),
+        axis.title = element_text(size = 14,face = "bold"))+
   labs(y = "Frequency",
-       x = "Yield loss (%/p.p.)")+
-  ggthemes::theme_few()
+       x = "Yield loss (%/p.p.)")
 
 gc()
 
@@ -2053,11 +2051,11 @@ alpha_m_sus_graphic = big_one_df %>%
   ggplot(aes(alfa_m_sus))+
   geom_histogram(color = "white", fill = "black", bins = 10)+
   scale_x_continuous(breaks = c(-2.0,-1.75,-1.50,-1.25,-1.00,-0.75,-0.50,-0.25,0.0), limits = c(-2.0,0.0))+
-  theme(text = element_text(face = "bold", size = 14),
-         axis.title = element_text(size = 16, face = "bold"))+
+   ggthemes::theme_few()+
+  theme(text = element_text(size = 12),
+        axis.title = element_text(size = 14,face = "bold"))+
   labs(y = "",
-       x = "Yield loss (%/p.p.)")+
-  ggthemes::theme_few()
+       x = "Yield loss (%/p.p.)")
 
 gc()
 
@@ -2069,11 +2067,11 @@ alpha_sus_graphic = big_one_df %>%
   ggplot(aes(alfa_sus))+
   geom_histogram(color = "white", fill = "black", bins = 10)+
   scale_x_continuous(breaks = c(-2.0,-1.75,-1.50,-1.25,-1.00,-0.75,-0.50,-0.25,0.0), limits = c(-2.0,0.0))+
-  theme(text = element_text(face = "bold", size = 14),
-         axis.title = element_text(size = 16, face = "bold"))+
+   ggthemes::theme_few()+
+  theme(text = element_text(size = 12),
+        axis.title = element_text(size = 14,face = "bold"))+
   labs(y = "",
-       x = "Yield loss (%/p.p.)")+
-  ggthemes::theme_few()
+       x = "Yield loss (%/p.p.)")
 
 gc()
 
@@ -2373,7 +2371,8 @@ res_graphic = res_high %>%
   facet_wrap(vars(class, class2)) +
   ggthemes::theme_few()+
   theme(strip.text = element_text(face = "bold", size = 14),
-        text = element_text(face = "bold", size = 20),
+        axis.title = element_text(face = "bold"),
+        text = element_text(size = 20),
         legend.position = "none")
 
 gc()
@@ -2407,7 +2406,8 @@ m_sus_graphic = m_sus_heat %>%
   facet_wrap(vars(class, class2)) +
   ggthemes::theme_few()+
   theme(strip.text = element_text(face = "bold", size = 14),
-        text = element_text(face = "bold", size = 20),
+        axis.title = element_text(face = "bold"),
+        text = element_text(size = 20),
         legend.position = "none")
 gc()
 
@@ -2442,7 +2442,8 @@ sus_graphic = sus_heat %>%
   facet_wrap(vars(class, class2)) +
   ggthemes::theme_few()+
   theme(strip.text = element_text(face = "bold", size = 14),
-        text = element_text(face = "bold", size = 20))
+        axis.title = element_text(face = "bold"),
+        text = element_text(size = 20))
 gc()
 
 # Plot
@@ -2707,9 +2708,12 @@ overall_cultivar <- overall_cultivar %>%
        y = "Yield difference (kg/ha)",
        color = "Tolerance level", 
        linetype = "", fill = "")+
-  theme(text = element_text(face = "bold", size = 14),
-        strip.text = element_text(size = 14),
-        legend.position = "top")
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 14, face = "bold"),
+        strip.text = element_text(size = 14,face = "bold"),
+        legend.position = "top",
+        legend.text = element_text(face = "bold"),
+        legend.title = element_text(face = "bold"))
  
  ggsave("fig/yield_gain.png", dpi = 1000, bg = "white",
         height = 7, width =8)
@@ -2882,9 +2886,12 @@ loss_overall %>%
   labs(x = "Level",
        y = "Economic losses (USD/ha)",
        fill = "Tolerance level")+
-  theme(text = element_text(size = 14, face = "bold"),
-        strip.text = element_text(size = 14),
-        legend.position = "top")
+    theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 14, face = "bold"),
+        strip.text = element_text(size = 14,face = "bold"),
+        legend.position = "top",
+        legend.text = element_text(face = "bold"),
+        legend.title = element_text(face = "bold"))
 
 ggsave("fig/losses_overall.png", bg = "white",
        dpi = 1000, height = 6, width = 8)
@@ -2956,9 +2963,12 @@ loss %>%
        y = "Economic losses (USD/ha)",
        color = "Tolerance level", 
        linetype = "", fill = "")+
-  theme(text = element_text(size = 14, face = "bold"),
-        strip.text = element_text(size = 14),
-        legend.position = "top")
+    theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 14, face = "bold"),
+        strip.text = element_text(size = 14,face = "bold"),
+        legend.position = "top",
+        legend.text = element_text(face = "bold"),
+        legend.title = element_text(face = "bold"))
 
  ggsave("fig/losses_year.png", dpi = 1000, bg = "white",
         height = 6, width = 8)
@@ -3269,8 +3279,9 @@ regression_graphic_res = res |>
   #annotate(geom="text", x=55, y=6000, label="DC = 0.2",
    #           color="black", size = 4)+
     ggthemes::theme_few()+
-  theme(text = element_text(size = 12, face = "bold"),
+  theme(text = element_text(size = 12),
         axis.title = element_text(size = 14, face = "bold"),
+        title = element_text(face = "bold"),
         legend.position = "none")+
   labs(x = " ", y = "Yield (kg/ha) ",
        title = "High")
@@ -3422,8 +3433,9 @@ regression_graphic_m_sus = m_sus |>
   #annotate(geom="text", x=55, y=6000, label="DC = 0.6",
    #           color="black", size = 4)+
     ggthemes::theme_few()+
-  theme(text = element_text(size = 12, face = "bold"),
+  theme(text = element_text(size = 12),
         axis.title = element_text(size = 14, face = "bold"),
+        title = element_text(face = "bold"),
         legend.position = "none")+
   labs(x = "Target spot severity (%)", y = "Yield (kg/ha) ",
        title = "Medium")
@@ -3582,8 +3594,9 @@ regression_graphic_sus = susceptible |>
   #annotate(geom="text", x=55, y=6000, label="DC = 1.0",
    #           color="black", size = 4)+
     ggthemes::theme_few()+
-  theme(text = element_text(size = 12, face = "bold"),
+  theme(text = element_text(size = 12),
         axis.title = element_text(size = 14, face = "bold"),
+        title = element_text(face = "bold"),
         legend.position = "none")+
   labs(x = "Target spot severity (%)", y = " ",
        title = "Low")
@@ -3958,9 +3971,9 @@ EDT_hist = tss_overall_EDT %>%
                      limits = c(0, 50))+
   ggthemes::theme_few()+
   facet_wrap(~EDT_type)+
-  theme(text = element_text(size = 14, face = "bold"),
-        strip.text = element_text(face = "bold", size =18),
-        axis.title = element_text(size = 18),
+  theme(axis.text = element_text(size =14),
+        #strip.text = element_text(face = "bold", size =18),
+        axis.title = element_text(size = 18,face = "bold"),
         strip.background = element_blank(),
         strip.text.x = element_blank())+
   labs(x = "EDT (%)",
