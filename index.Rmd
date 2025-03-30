@@ -1652,8 +1652,8 @@ theme(text = element_text(size = 12, face = "bold"),
         legend.position = "none")
 price_plot
 
-  ggsave("fig/soybean_price.png", bg = "white",
-       dpi = 600, height = 5, width = 6)
+ # ggsave("fig/soybean_price.png", bg = "white",
+  #     dpi = 600, height = 5, width = 6)
 ```
 
 ## Simulated variables
@@ -2088,6 +2088,26 @@ ggsave("fig/simulated_variables.png", dpi = 1000, bg = "white",
 ```
 
 ![](fig/simulated_variables.png)
+
+```{r}
+  big_one_df %>% 
+  filter(C <= 180) %>%
+  filter(lambda >= 0.4) %>%
+  filter(lambda <= 0.8) %>%
+  filter(C >= 60) %>%
+  ggplot(aes(soy_price))+
+  geom_histogram(color = "white", fill = "black", bins = 20)+
+  ggthemes::theme_few()+
+  labs(x="Soybean price (USD/kg)", y = "Frequency")+
+  scale_x_continuous(breaks = seq(0,1,by=0.025))+
+theme(text = element_text(size = 12, face = "bold"),
+        axis.title = element_text(size = 14, face = "bold"),
+        legend.position = "none")
+
+
+  ggsave("fig/soybean_price.png", bg = "white",
+       dpi = 600, height = 5, width = 6)
+```
 
 ### Plotting RYL
 
